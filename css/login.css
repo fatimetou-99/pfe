@@ -1,0 +1,35 @@
+
+.container {
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	margin-bottom: 5%;
+  }
+  
+	h2
+	{
+		margin: 0;
+		padding: 0;
+		font-weight: 900;
+		font-size: 30pt;
+		color: #fff;
+	}
+
+  
+  
+ol, ul
+{
+	padding: 0;
+	list-style: none;
+
+}
+
+ul.actions
+{
+    text-align: center;
+    justify-content: center;
+	align-items: center;
+
+}
+
+
