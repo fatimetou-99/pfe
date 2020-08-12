@@ -1,36 +1,11 @@
-@import url("https://fonts.googleapis.com/css?family=Roboto:400,400i,700");
-*{
-    font-family: 'Courier New', Courier, monospace;
-    margin: 0px;
-    padding: 0px;    
-   
-    
-}
 
-body{
-
-  font-family: 'Varela', sans-serif;
-  color: #656565;
-}
-	
-	h1, h3
-	{
-	
-		text-align: center;
-		font-weight: 700;
-		font-size: 2.7em;
-		color: #2B3F48;
-	}
 .header{
     width: 100%;
     height: 15vh;
-    background-color: white;
+    background-color:#f0f0f0;
     position: relative;
 }
 
-a:hover{
-   color: rgb(24, 148, 80);
-}
 .header .navbar{
 width: 100%;
 height: 80px;
@@ -38,11 +13,12 @@ display: flex;
 justify-content: space-between;
 align-items: center;
 position: absolute;
-margin-top: 30px;
+background-color:#f0f0f0;
+margin-top: 40px;
+margin-bottom: 40px;
+
 }
 
 ul {
     list-style: none;
-    margin-right: 60px;
 }
-

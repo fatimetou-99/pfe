@@ -1,4 +1,27 @@
 
+body{
+    background-color: #f0f0f0;
+    font-family: 'Nunito', sans-serif;
+
+}
+
+a{
+    text-decoration: none;
+    color: rgb(24, 148, 80);
+ }
+
+a:hover{
+   color: rgb(24, 148, 80);
+   text-decoration: none;
+}
+h1, h3
+{
+
+    text-align: center;
+    font-weight: 700;
+    font-size: 2.7em;
+    color: #2B3F48;
+}
 
 .blog-posts{
     margin-top: 130px;
@@ -13,6 +36,7 @@
 .post{
     width: calc(33% - 10px);
     overflow: hidden;
+    padding: 10px;
 }
 .post .titre{
     width: 100%;
@@ -36,6 +60,7 @@
 }
 .date{
     font-size: 15px;
+    margin-top: 10px;
     font-style: italic;
     color: #e77f67;
 
@@ -60,44 +85,185 @@
 }
 
 
+.bouton{
+    background-color: teal;
+    border: 0;
+    border-radius: 5px;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
+    color: white;
+    font-size: 24px;
+	padding: 20px 35px;
+	text-align :center;
+}
+
+.foot{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
 
 
-button{
-    background:rgb(24, 148, 80);
-    color:#fff;
-    border:none;
+.modal{
+background-color: rgba(0, 0, 0, 0.3);
+display: none;
+padding-top: 250px; /* Location of the box */
+align-items: center;
+justify-content: center;
+position: fixed;
+top: 0;
+left: 0;
+height: 100vh;
+width: 100vw;
+}
+
+.modal-content{
+    background-color: white;
+    width: 500px;
+    height: 200px;
+    max-width: 100%;
+    padding: 30px 50px;
+    border-radius: 5px;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
     text-align: center;
-    position:relative;
-    height:60px;
-    font-size:1.6em;
-    padding:0 2em;
-    margin-right: 20px;
-    cursor:pointer;
-    outline:none;
+    margin: auto;
+    
+    }
+    .modal-content h1{
+    margin: 0;
+    }
+    
+    .modal-content p{
+    font-size: 14px;
+    opacity: 0.7;
+    }
+    
+    .close{
+    color:gray;
+    float: right;
+    font-size: 28px;
+    font-weight: bold;
+    }
+    
+    .close:hover,
+    .close:focus {
+    color: black;
+    text-decoration: none;
+    cursor: pointer;
+    }
+
+
+@keyframes pulse {
+    0% {
+      transform: scale(0);
+      opacity: 0;
+    }
+    33% {
+      transform: scale(1);
+      opacity: 1;
+    }
+    100% {
+      transform: scale(3);
+      opacity: 0;
+    }
   }
-  button:hover{
-    background:#fff;
-    color:rgb(24, 148, 80);
+  .big {
+    display: inline-flex;
+    align-items: center;
+    background: teal;
+    box-shadow: 0 3px 2px 0 rgba(0,0,0,0.1);
+    border-radius: 5px;
+    height: 70px;
+    padding: 0 30px;
+    color: #fff;
+    font-size: larger;
+    text-transform: uppercase;
+    text-decoration: none;
+    transition: teal .3s, transform .3s, box-shadow .3s;
+     will-change: transform;
   }
-  button:before,button:after{
-    content:'';
-    position:absolute;
-    top:0;
-    right:0;
-    height:2px;
-    width:0;
-    background: rgb(24, 148, 80);
-    transition:400ms ease all;
+  .big:hover {
+        background: darken(teal,10%);
+      box-shadow: 0 4px 17px rgba(0,0,0,0.2);
+      transform: translate3d(0, -2px, 0);
+      color: #f0f0f0;
+    }
+    .big:active {
+      box-shadow: 0 1px 1px 0 rgba(0,0,0,0.1);
+      transform: translate3d(0, 1px, 0);
+    }
+
+
+
+  .button {
+    display: inline-flex;
+    align-items: center;
+    background: teal;
+    box-shadow: 0 3px 2px 0 rgba(0,0,0,0.1);
+    border-radius: 5px;
+    height: 45px;
+    padding: 0 30px;
+    color: #fff;
+    text-transform: uppercase;
+    text-decoration: none;
+    transition: teal .3s, transform .3s, box-shadow .3s;
+     will-change: transform;
   }
-  button:after{
-    right:inherit;
-    top:inherit;
-    left:0;
-    bottom:0;
+  .button:hover {
+        background: darken(teal,10%);
+      box-shadow: 0 4px 17px rgba(0,0,0,0.2);
+      transform: translate3d(0, -2px, 0);
+      color: #f0f0f0;
+    }
+    .button:active {
+      box-shadow: 0 1px 1px 0 rgba(0,0,0,0.1);
+      transform: translate3d(0, 1px, 0);
+    }
+  
+  
+  .pulse {
+    position: relative;
   }
-  button:hover:before,button:hover:after{
-    width:100%;
-    transition:800ms ease all;
-  }
+    .pulse:before, .pulse:after {
+      content: '';
+      position: absolute;
+      top: 0;
+      left: 0;
+      right: 0;
+      bottom: 0;
+      background: rgba(255,255,255,.4);
+      border-radius: 50%;
+      width: 20px;
+      height: 20px;
+      opacity: 0;
+      margin: auto;
+    }
+    .pulse:before {
+      animation: pulse 1.5s infinite linear;
+    }
+    .pulse:after {
+      animation: pulse 2s .4s infinite linear;
+    }
+    .pulse:hover:before, .pulse:hover:after {
+      display: none;
+    }
+  
+  
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
