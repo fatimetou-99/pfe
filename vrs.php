@@ -19,7 +19,7 @@
 
     <div class="header" >
         <div class="navbar">
-            <div class="logo"> <a href="index.html"><img src="images/logo.png"  alt="LOGO" width="19%" height="70px"></a></div>
+            <div class="logo"> <a href="index.php"><img src="images/logo.png"  alt="LOGO" width="19%" height="70px"></a></div>
             <img src="images/fr.png" width="50px" height="50px"></li>
         </div>
     </div> 

@@ -1,75 +1,51 @@
-const form = document.getElementById('form');
-const username = document.getElementById('nom');
-const phone = document.getElementById('tel');
-
-
-form.addEventListener('submit', e => {
-	e.preventDefault();
-	
-	checkInputs();
-});
-
-
-
-function checkInputs() {
-	// trim to remove the whitespaces
-	const usernameValue = username.value.trim();
-	const phoneValue = phone.value.trim();
-	
-	if(usernameValue === '') {
-    setErrorFor(username, 'Le champ doit etre remplis');
-    return false;
-    }
-     else {
-    setSuccessFor(username);
-    username = $('#nom').val();
-	}
-		
-    if(phoneValue === '') {
-		setErrorFor(phone, 'Le champ doit etre remplis');
-		} else if( phoneValue.length <8 ){
-            setErrorFor(phone, 'Numero de telephone incorrect');
-            return false;
-		} else{
-        setSuccessFor(phone);
-        phone = $('#tel').val();
-
-		}
-		
-	
-	function setErrorFor(input, message) {
-	const formControl = input.parentElement;
-	const small = formControl.querySelector('small');
-	formControl.className = 'frm-control error';
-	small.innerText = message;
-	}
-	
-	function setSuccessFor(input) {
-	const formControl = input.parentElement;
-	formControl.className = 'frm-control success';
-    }
-}
-    
-
 function ret(){
 	window.location.href="rtr.php";
 }
 
 
 
-n =  new Date();
-y = n.getFullYear();
-m = n.getMonth() + 1;
-d = n.getDate();
-document.getElementById("date").innerHTML = m + "-" + d + "-" + y;
-document.getElementById("date2").innerHTML = m + "-" + d + "-" + y;
-document.getElementById("date3").innerHTML = m + "-" + d + "-" + y;
-
-
 
 
   /*
+   echo '<script>';
+              echo '   
+              clickCounter();
+              function clickCounter() {
+              if(typeof(Storage) !== "undefined") {
+              if (localStorage.clickcount) {
+                 localStorage.clickcount = Number(localStorage.clickcount)+1;
+              } else {
+              localStorage.clickcount = 1;
+              }
+                            
+              localStorage.setItem("myValue2", localStorage.clickcount);
+              } else {
+              document.getElementById("result").innerHTML = "Sorry, your browser does not support web storage...";
+              }
+              }';
+			  echo ' </script>';
+			  
 
+   echo '<script>';
+              echo '   
+              clickCounte();
+              function clickCounte() {
+              if(typeof(Storage) !== "undefined") {
+              if (localStorage.clickcoun) {
+              x= localStorage.clickcoun = Number(localStorage.clickcoun)+1;
+              } else {
+              localStorage.clickcoun = 1;
+              }
+              
+              //document.getElementById("result").innerHTML = "You have clicked the button " + localStorage.clickcount + " time(s).";
+              
+              localStorage.setItem("myValue", localStorage.clickcoun);
+              } else {
+              document.getElementById("result").innerHTML = "Sorry, your browser does not support web storage...";
+              }
+              }';
+			  echo ' </script>';
+			  
 
    function rtCounter() {
     	if(typeof(Storage) !== "undefined") {

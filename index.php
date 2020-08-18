@@ -8,25 +8,39 @@
 	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
 	<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script> 
-	<script src="js/script.js"></script>
-   
-   
-    <link rel="stylesheet" type="text/css" href="css/main.css">
-	<link rel="stylesheet" type="text/css" href="css/header.css">
 	
-    <script src="js/script.js"></script>
+	<link rel="stylesheet" type="text/css" href="css/main.css">
+	<link rel="stylesheet" type="text/css" href="css/header.css">
 
+<style>
+
+.post-content{
+  background-color: #f9f9f9;
+  margin: 0 20px;
+  padding: 5px 25px 10px 25px;
+  border-radius: 6px;
+  transform: translateY(-35px);
+  transition: .3s ;
+}
+.post-content h2{
+    font-size: 20px;
+    margin-bottom: 10px;
+    
+}
+</style>
 </head>
 <body>
 <div class="container" >
 
 <div class="header" >
 		<div class="navbar">
-			<div class="logo"> <a href="index.html"><img src="images/logo.png"  alt="LOGO" width="19%" height="70px"></a></div>
+			<div class="logo"> <a  href="index.php"><img src="images/logo.png"  alt="LOGO" width="19%" height="70px"></a></div>
 		    
 			<img src="images/fr.png" width="50px" height="50px"></li>
 	    </div>
 	</div> 
+
+<div class="cnt">
 
 
 <div class="blog-posts">
@@ -34,11 +48,9 @@
     <div class="post">
          <div>
 			<div class="titre" style="background-color:silver;color: white; height: 200px; text-align: center;">
-			 <h1 style="text-align: center; padding-top: 20px;" id="try">Numero<br> Actuelle</h1>
+			 <h1 style="text-align: center; padding-top: 20px;" >Numero<br> Actuelle</h1>
 		     </div>
-		 <div class="post-content"><h2 >Retrait : 40<br> Versement : 40
-			<br>
-			 <span class="date" id="date">20-10-2020</span>
+		 <div class="post-content"><h2>Retrait :<p  class="date"  > 40</p> Versement : <p class="date"> 40</p>
 		  </div> 
       </div>
 	</div>
@@ -48,10 +60,8 @@
 		 <div class="titre" style="background-color:powderblue;color: white; height: 200px; text-align: center;">
 		 <h1 style="text-align: center; padding-top: 20px;">Longeur<br> De le File</h1>
 		 </div>
-		 <div class="post-content"><h2 >Retrait : 40<br> Versement : 40
-			<br>
-			 <span class="date" id="date2">20-10-2020</span>
-		</div> 
+		 <div class="post-content"><h2>Retrait :<p  class="date" id="rt" > 40</p> Versement : <p class="date" id="vr"> 40</p>
+		  </div> 
       </div>
 	</div>
 
@@ -60,13 +70,12 @@
 		 <div class="titre" style="background-color: wheat;color: white; height: 200px; text-align: center;">
 		 <h1 style="text-align: center; padding-top: 20px;">Numero<br> Actuelle</h1>
 		 </div>
-		 <div class="post-content"><h2 >Retrait : 40<br> Versement : 40
-			<br>
-			 <span class="date" id="date3">20-10-2020</span>
-		</div> 
+		 <div class="post-content"><h2>Retrait :<p  class="date"  > 40</p> Versement : <p class="date" > 40</p>
+			
+			
+		  </div> 
       </div>
 	</div>
-	
 </div>
 
 <div class="foot">
@@ -95,10 +104,10 @@
 
 
 </div>
-
+</div>
 <script>
    
-	 // Get the modal
+	// Get the modal
 	 var modal = document.getElementById("myModal");
     
 	// Get the button that opens the modal
@@ -125,26 +134,22 @@
 	  }
 	}
 
-
-
+/*
 n =  new Date();
 y = n.getFullYear();
 m = n.getMonth() + 1;
 d = n.getDate();
-document.getElementById("date").innerHTML = m + "-" + d + "-" + y;
-document.getElementById("date2").innerHTML = m + "-" + d + "-" + y;
-document.getElementById("date3").innerHTML = m + "-" + d + "-" + y;
 
-
-
-
-	/* Receive Counter
-
-	var res=localStorage.getItem("r");
-	document.getElementById("try").innerHTML =res;
+document.getElementById("date").innerHTML = d + " - " + m + " - " + y;
+document.getElementById("date2").innerHTML = d + " - " + m + " - " + y;
+document.getElementById("date3").innerHTML = d + " - " + m + " - " + y;
 */
 
+document.getElementById('vr').innerHTML = localStorage.getItem('Versement',localStorage.v);
+document.getElementById('rt').innerHTML = localStorage.getItem('retrait',localStorage.r);
+
+
 </script>
-</body>
+</body>                  
 </html>
 

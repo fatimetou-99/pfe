@@ -8,17 +8,46 @@
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script> 
    
    
+    <link rel="stylesheet" type="text/css" href="css/header.css">
     <link rel="stylesheet" type="text/css" href="css/info.css">
+
+    <style >
+
+    </style>
   <title>Document</title>
 </head>
 <body>
-<h1>votre numero est :</h1>
-    <p id="numr"></p>
+  <div class="container" >
+
+    <div class="header" >
+        <div class="navbar">
+          <div class="logo"> <a  href="index.php"><img src="images/logo.png"  alt="LOGO" width="19%" height="70px"></a></div>
+            
+          <img src="images/fr.png" width="50px" height="50px"></li>
+          </div>
+      </div> 
+  
+<div class="cnt">
+
+
+<div class="card">
+  <div class="circle">
+    <h2 id="Vcounter">01</h2>
+  </div>
+  <div class="content">
+    <p>Voici votre Numero 
+      <br>Bienvenue Dans Notre service
+    </p>
+    <a href="index.php" class="" id="">Page Principale </a>
+  </div>
+</div>
+</div>
 
 <script>
-var b =localStorage.getItem("rtr");
-document.getElementById("numr").innerHTML =b;
-</script>
+
+document.getElementById('Vcounter').innerHTML = localStorage.getItem('Versement',localStorage.v);
+
+</script> 
 </body>
 </html>
 
