@@ -12,22 +12,14 @@
 	<link rel="stylesheet" type="text/css" href="css/main.css">
 	<link rel="stylesheet" type="text/css" href="css/header.css">
 
-<style>
-
-.post-content{
-  background-color: #f9f9f9;
-  margin: 0 20px;
-  padding: 5px 25px 10px 25px;
-  border-radius: 6px;
-  transform: translateY(-35px);
-  transition: .3s ;
+<script>
+function update() {
+  $.get("insert.php", function(data) {
+    $("#blog-posts").html(data);
+    window.setTimeout(update, 10000);
+  });
 }
-.post-content h2{
-    font-size: 20px;
-    margin-bottom: 10px;
-    
-}
-</style>
+</script>
 </head>
 <body>
 <div class="container" >
@@ -50,7 +42,7 @@
 			<div class="titre" style="background-color:silver;color: white; height: 200px; text-align: center;">
 			 <h1 style="text-align: center; padding-top: 20px;" >Numero<br> Actuelle</h1>
 		     </div>
-		 <div class="post-content"><h2>Retrait :<p  class="date"  > 40</p> Versement : <p class="date"> 40</p>
+		 <div class="post-content"><h2>Retrait :<p  class="date" id="rsuiv"> 0</p> Versement : <p class="date" id="vsuiv"> 0</p>
 		  </div> 
       </div>
 	</div>
@@ -60,7 +52,7 @@
 		 <div class="titre" style="background-color:powderblue;color: white; height: 200px; text-align: center;">
 		 <h1 style="text-align: center; padding-top: 20px;">Longeur<br> De le File</h1>
 		 </div>
-		 <div class="post-content"><h2>Retrait :<p  class="date" id="rt" > 40</p> Versement : <p class="date" id="vr"> 40</p>
+		 <div class="post-content"><h2>Retrait :<p  class="date" id="rt" > 0</p> Versement : <p class="date" id="vr"> 0</p>
 		  </div> 
       </div>
 	</div>
@@ -70,7 +62,7 @@
 		 <div class="titre" style="background-color: wheat;color: white; height: 200px; text-align: center;">
 		 <h1 style="text-align: center; padding-top: 20px;">Numero<br> Actuelle</h1>
 		 </div>
-		 <div class="post-content"><h2>Retrait :<p  class="date"  > 40</p> Versement : <p class="date" > 40</p>
+		 <div class="post-content"><h2>Retrait :<p  class="date"  > 0</p> Versement : <p class="date" > 0</p>
 			
 			
 		  </div> 
@@ -146,8 +138,11 @@ document.getElementById("date3").innerHTML = d + " - " + m + " - " + y;
 */
 
 document.getElementById('vr').innerHTML = localStorage.getItem('Versement',localStorage.v);
-document.getElementById('rt').innerHTML = localStorage.getItem('retrait',localStorage.r);
+document.getElementById('vsuiv').innerHTML = localStorage.getItem("v-suiv", localStorage.vsv);
 
+
+document.getElementById('rt').innerHTML = localStorage.getItem('retrait',localStorage.r);
+document.getElementById('rsuiv').innerHTML = localStorage.getItem("r-suiv", localStorage.rsv);
 
 </script>
 </body>                  
