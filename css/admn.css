@@ -1,0 +1,138 @@
+
+.form__input {
+-webkit-appearance: none;
+
+width: 100%;
+max-width: 425px;
+
+/* Fix for Safari/iOS date fields */
+min-height: calc(0.9em + (0.8em * 2) + 0.6em);
+
+padding: 0.8em;
+font-size: 0.9em;
+font-family: "Source Sans Pro", sans-serif;
+
+outline: none;
+border: 1px solid #dddddd;
+border-radius: 4px;
+background: #f9f9f9;
+transition:  0.25s, border-color 0.25s, color 0.25s;
+}
+
+.form__input:focus {
+background: #ffffff;
+}
+
+.form__input::placeholder {
+color: #bbbbbb;
+}
+.cnt{
+background-color: white;
+padding : 10px;
+width:95%;
+border-radius :5px;
+border: 1px solid #f0f0f0;
+
+}
+button {
+
+    padding: 0.8em;
+    font-size: 0.9em;
+    color: white;
+    outline: none;
+    border: 1px solid #222;
+    border-radius: 4px;
+    background: #222;
+    }
+    
+
+
+    body{
+        background-color: whitesmoke;
+    }
+    .cnt{
+    background-color: white;
+    padding : 10px;
+    margin:20px;
+    width:95%;
+    border-radius :5px;
+    border: 1px solid #f0f0f0;
+    
+    }
+    .courses-container{
+        display :flex;
+        justify-content:space-around;
+      
+      }
+      
+      .course {
+          background-color: white;
+          border-radius: 10px;
+          box-shadow: 0 10px 10px rgba(0, 0, 0, 0.2);
+          display: flex;
+          max-width: 100%;
+          margin: 20px;
+          overflow: hidden;
+          width: 400px;
+      }
+      
+      .course h6 {
+          opacity: 0.6;
+          margin: 0;
+          letter-spacing: 1px;
+          text-transform: uppercase;
+      }
+      
+      .course h2 {
+          letter-spacing: 1px;
+          margin: 10px 0;
+      }
+      
+      .course-preview {
+          background-color: #222;
+          color: #fff;
+          padding: 30px;
+          max-width: 250px;
+      }
+      
+      .course-preview a {
+          color: #fff;
+          display: inline-block;
+          font-size: 12px;
+          opacity: 0.6;
+          margin-top: 30px;
+          text-decoration: none;
+      }
+      
+      .course-info {
+          padding: 30px;
+          position: relative;
+          width: 100%;
+      }
+    .form {
+      display :flex;
+      justify-content:space-between;
+      margin:10px;
+    }
+    .pie{
+      width: 800px; 
+      height: 400px; 
+      margin:auto;
+    }
+      @media(max-width:768px){
+        .course{
+          flex-direction: column;
+          width: 90%;
+        }
+        .course-preview{
+          width: 100%;
+        }
+        .course-preview h2{
+          margin: 10px 0 0;
+        }
+        .course-info h2{
+          margin-top: 20px ;
+        }
+       
+    }
+      

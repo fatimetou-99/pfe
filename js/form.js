@@ -9,6 +9,7 @@ form.addEventListener('submit', e => {
 	e.preventDefault();
 	
 	checkInputs();
+	
 });
 
 
@@ -17,11 +18,13 @@ function checkInputs() {
 	const usernameValue = username.value.trim();
 	const phoneValue = phone.value.trim();
 	
-	
+	var valid = false;
+
 	if(usernameValue === '') {
 	setErrorFor(username, 'Le champ doit etre remplis');
 	} else {
 	setSuccessFor(username);
+	return valid =true;
 	}
 	
 	
@@ -31,8 +34,10 @@ function checkInputs() {
 			setErrorFor(phone, 'Numero de telephone incorrect');
 		} else{
 		setSuccessFor(phone);
+		return valid =true;
 		}
 		
+		return valid ;
 	
 	function setErrorFor(input, message) {
 	const formControl = input.parentElement;
@@ -44,5 +49,7 @@ function checkInputs() {
 	function setSuccessFor(input) {
 	const formControl = input.parentElement;
 	formControl.className = 'frm-control success';
-	}}
+	}
+
+}
 	

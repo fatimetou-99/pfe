@@ -1,53 +1,151 @@
+<?php 
+require_once "cnx.php";
+
+$sqlV = mysqli_query($con,"SELECT max(id_vers) as longV from temp_v");
+if (mysqli_num_rows($sqlV)>0){
+		 $rowV = mysqli_fetch_assoc($sqlV) ;
+}
+
+?>
 <html lang="en">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <link href="https://fonts.googleapis.com/css2?family=Nunito:ital,wght@0,300;0,400;0,600;1,300;1,400;1,600&display=swap" rel="stylesheet">
-  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">
-    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
-    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script> 
-   
-   
-    <link rel="stylesheet" type="text/css" href="css/header.css">
-    <link rel="stylesheet" type="text/css" href="css/info.css">
+	<meta charset="UTF-8">
+  <meta http-equiv="refresh" content="2;url=index.php">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<title>Document</title>
+	<link rel="stylesheet" type="text/css" href="css/font.css">
 
-    <style >
+	<style>
+		
+*{
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
 
-    </style>
-  <title>Document</title>
+body{
+  background-color: seagreen;
+  font-family: 'Nunito', sans-serif;
+color:black;
+}
+
+.container{
+  width: 80%;
+  min-height: 100vh;  
+ 
+  display: flex;
+  -ms-flex-wrap: wrap;
+      flex-wrap: wrap;
+  
+  margin-left: auto;
+  margin-right: auto;
+}
+
+.center{
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+}
+
+.card{
+  background-color: white;
+  width: 250px;
+  min-height: 250px * 1.618;
+  
+  display: -webkit-box;
+  
+  display: -ms-flexbox;
+  
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  padding:  20px;
+  margin: 5px;
+  
+  -webkit-box-shadow: -20px -20px 0px 0px lighten(green, 5%);
+  
+          box-shadow: -20px -20px 0px 0px lighten(green, 5%);
+  border-radius: 10px;
+  
+  -webkit-animation-name: shadow-show; /* Safari 4.0 - 8.0 */
+  -webkit-animation-duration: 1.5s; /* Safari 4.0 - 8.0 */
+  animation-name: shadow-show;
+  animation-duration: 1.5s;
+  
+  -webkit-transition-timing-function: cubic-bezier(0.795, 0.000, 0.165, 1.000);
+  -o-transition-timing-function: cubic-bezier(0.795, 0.000, 0.165, 1.000);
+  transition-timing-function: cubic-bezier(0.795, 0.000, 0.165, 1.000); /* custom */
+
+  
+  h1,h2,h3,h4,h5{
+    margin: 0px;
+    padding: 0px 0px 15px 0px;
+    font-family: 'Noto Sans KR', sans-serif;
+    font-size: 30px;
+    color: #282828;
+  }
+  
+  hr{
+    display: block;
+    border: none;
+    height: 3px;
+    background-color: seagreen;
+    margin: 0px;
+  
+  }
+  
+  p{
+    margin: 15px; 0px 0px 0px;
+    font-family: 'Noto Sans KR', sans-serif;
+    font-weight: 100;
+    letter-spacing: -0.25px;
+    line-height: 1.25;
+    font-size: 16px;
+    word-break: break-all;
+    word-wrap: pre-wrap;
+    color: #282828;
+    
+    -webkit-animation-name: p-show; /* Safari 4.0 - 8.0 */
+    -webkit-animation-duration: 1.5s; /* Safari 4.0 - 8.0 */
+    animation-name: p-show;
+    animation-duration: 1.5s;
+  }
+  
+  
+}
+
+img{
+	width:70%;
+}
+	</style>
 </head>
 <body>
-  <div class="container" >
-
-    <div class="header" >
-        <div class="navbar">
-          <div class="logo"> <a  href="index.php"><img src="images/logo.png"  alt="LOGO" width="19%" height="70px"></a></div>
-            
-          <img src="images/fr.png" width="50px" height="50px"></li>
-          </div>
-      </div> 
-  
-<div class="cnt">
-
-
-<div class="card">
-  <div class="circle">
-    <h2 id="Vcounter">01</h2>
-  </div>
-  <div class="content">
-    <p>Voici votre Numero 
-      <br>Bienvenue Dans Notre service
-    </p>
-    <a href="index.php" class="" id="">Page Principale </a>
+<div class="container center">
+  <div class="card">
+	  <img src="images/logo.png"></img>
+    <h2 >
+    <?php echo $rowV['longV'];?>
+    </h2>
+    <hr/>
+	<p>Versement</p>
+	<p id="date"></p>
   </div>
 </div>
-</div>
-
 <script>
 
-document.getElementById('Vcounter').innerHTML = localStorage.getItem('Versement',localStorage.v);
+n =  new Date();
+y = n.getFullYear();
+m = n.getMonth() + 1;
+d = n.getDate();
 
-</script> 
+document.getElementById("date").innerHTML = d + " - " + m + " - " + y;
+	//window.print();
+</script>
 </body>
 </html>
+
 

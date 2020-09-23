@@ -62,8 +62,29 @@ function ret(){
   
   }
 
+	
+n =  new Date();
+y = n.getFullYear();
+m = n.getMonth() + 1;
+d = n.getDate();
+
+document.getElementById("date").innerHTML = d + " - " + m + " - " + y;
+document.getElementById("date2").innerHTML = d + " - " + m + " - " + y;
+document.getElementById("date3").innerHTML = d + " - " + m + " - " + y;
 
 
 var b =localStorage.getItem("myValue");
 document.getElementById("rsl").innerHTML =b;
+
+
+
+
+
+if( (c-d) >0){
+  document.getElementById('Rattente').innerHTML = c-d ;
+  document.getElementById('r-act').innerHTML = localStorage.getItem("r-suiv", localStorage.vsv);
+}
+else{
+  document.getElementById('Rattente').innerHTML = 0;
+  document.getElementById('r-act').innerHTML = c;
 */

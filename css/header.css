@@ -5,6 +5,10 @@
     background-color:#f0f0f0;
     position: relative;
 }
+body{
+  background-color:#f0f0f0;
+
+}
 
 .header .navbar{
 width: 100%;
@@ -18,7 +22,65 @@ margin-top: 40px;
 margin-bottom: 40px;
 
 }
-
+.boton{
+  
+  color: seagreen;
+}
 ul {
     list-style: none;
 }
+
+.logo-img{
+    width: 19% ;
+    height:70px;
+}
+
+.lng {
+    position: relative;
+  }
+  
+  .lng ul {
+    margin-top: 10px;
+    position: absolute;
+    display: flex;
+    justify-content: space-around;
+    flex-direction: column;
+    align-items: center;
+    width: 100px;
+    height: 50px;
+    background: white;
+    left: 0px;
+    list-style: none;
+	  border-radius: 5px;
+    opacity: 0;
+    pointer-events: none;
+    transform: translateY(-10px);
+    transition: all 0.4s ease;
+  }
+  
+  .lng li {
+    width: 100%;
+    height: 100%;
+    display: flex;
+    justify-content: center;
+	  align-items: center;
+	  text-align :center;
+
+  }
+  
+  .lng li:hover {
+	border-radius: 5px;
+
+  }
+  
+  .lng a {
+    color: black;
+    text-decoration: none;
+  }
+  
+  .lng button:focus + ul {
+    opacity: 1;
+    pointer-events: all;
+    transform: translateY(0px);
+  }
+  

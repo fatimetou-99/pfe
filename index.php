@@ -1,66 +1,53 @@
+<?php 
+require_once "cnx.php";
+require_once "header.php";
+
+
+?>
+
 <html lang="en">
 <head>
 
 	<title>Fil D'attente</title>
 	<meta charset="UTF-8">
+	<!-- A meta tag that redirects after 5 seconds to one of my PHP tutorials-->
 	<meta name="viewport" content="width=device-width, initial-scale=1.0">
-	<link href="https://fonts.googleapis.com/css2?family=Nunito:ital,wght@0,300;0,400;0,600;1,300;1,400;1,600&display=swap" rel="stylesheet">
 	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">
-    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
 	<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script> 
-	
-	<link rel="stylesheet" type="text/css" href="css/main.css">
-	<link rel="stylesheet" type="text/css" href="css/header.css">
+	<link rel="stylesheet" type="text/css" href="css/main.css" />
+	<link rel="stylesheet" type="text/css" href="css/font.css" />
 
-<script>
-function update() {
-  $.get("insert.php", function(data) {
-    $("#blog-posts").html(data);
-    window.setTimeout(update, 10000);
-  });
-}
-</script>
 </head>
 <body>
-<div class="container" >
+<div class="container">
 
-<div class="header" >
-		<div class="navbar">
-			<div class="logo"> <a  href="index.php"><img src="images/logo.png"  alt="LOGO" width="19%" height="70px"></a></div>
-		    
-			<img src="images/fr.png" width="50px" height="50px"></li>
-	    </div>
-	</div> 
-
-<div class="cnt">
-
-
+	
 <div class="blog-posts">
-    
     <div class="post">
          <div>
-			<div class="titre" style="background-color:silver;color: white; height: 200px; text-align: center;">
-			 <h1 style="text-align: center; padding-top: 20px;" >Numero<br> Actuelle</h1>
+			<div class="titre1" >
+			 <h1  class="txt1">Numero<br> Actuelle</h1>
 		     </div>
-		 <div class="post-content"><h2>Retrait :<p  class="date" id="rsuiv"> 0</p> Versement : <p class="date" id="vsuiv"> 0</p>
+		 <div class="post-content"><h2>Retrait :<p  class="date" id="act_R"> </p> Versement : <p class="date" id="act_V"></p>
 		  </div> 
       </div>
 	</div>
 
     <div class="post">
         <div class="contenue">
-		 <div class="titre" style="background-color:powderblue;color: white; height: 200px; text-align: center;">
-		 <h1 style="text-align: center; padding-top: 20px;">Longeur<br> De le File</h1>
+		 <div class="titre2" >
+		 <h1 class="txt2">Longeur De <br>la File d'attente</h1>
 		 </div>
-		 <div class="post-content"><h2>Retrait :<p  class="date" id="rt" > 0</p> Versement : <p class="date" id="vr"> 0</p>
+		 <div class="post-content"><h2>Retrait :<p  class="date" id="longR"> </p> Versement : <p class="date" id="longV" > </p>
 		  </div> 
       </div>
 	</div>
 
     <div class="post">
 	 <div class="contenue">
-		 <div class="titre" style="background-color: wheat;color: white; height: 200px; text-align: center;">
-		 <h1 style="text-align: center; padding-top: 20px;">Numero<br> Actuelle</h1>
+		 <div class="titre3" >
+		 <h1 class="txt3">Numero<br> Actuelle</h1>
 		 </div>
 		 <div class="post-content"><h2>Retrait :<p  class="date"  > 0</p> Versement : <p class="date" > 0</p>
 			
@@ -71,80 +58,46 @@ function update() {
 </div>
 
 <div class="foot">
-<a class="big pulse" id="myBtn" >Joindre la fle d'attente</a>
+<a class="big pulse"  data-toggle="modal" data-target="#myModal">Joindre la file d'attente</a>
 </div>
-
-
-<div id="myModal" class="modal">
-  
-	<div class="modal-content">
-		<span class="close">&times;</span>
-		<h2>Veuiller Choisir</h2>
-		<p style="font-size: large;"> Nos Services :</p>
-	   <div >
-			<a style="margin: 15px;" href="vrs.php"   class="button pulse">
-				Versement
-			</a>
-			<a style="margin: 15px;" href="rtr.php"  class="button pulse">
-				Retrait
-			</a>
-		</div>
-		
-	</div>
-  
-  </div>
-
-
-</div>
-</div>
-<script>
-   
-	// Get the modal
-	 var modal = document.getElementById("myModal");
+<div class="modal fade" id="myModal" role="dialog">
+    <div class="modal-dialog">
     
-	// Get the button that opens the modal
-	var btn = document.getElementById("myBtn");
-	
-	// Get the <span> element that closes the modal
-	var span = document.getElementsByClassName("close")[0];
-	
-	// When the user clicks the button, open the modal 
-	btn.onclick = function() {
-		modal.style.display = "block";
-   
-	}
-	
-	// When the user clicks on <span> (x), close the modal
-	span.onclick = function() {
-	  modal.style.display = "none";
-	}
-	
-	// When the user clicks anywhere outside of the modal, close it
-	window.onclick = function(event) {
-	  if (event.target == modal) {
-		modal.style.display = "none";
-	  }
-	}
+      <!-- Modal content-->
+      <div class="modal-content">
+        <div class="modal-header">
+		  <button type="button" class="close" data-dismiss="modal">&times;</button>
+		  <div class="bx"> 
+			  <h2>Veuiller Choisir</h2>
+			  <h4> Nos Services :</h4>
+                <a href="vrs.php"  class="button pulse">Versement</a>
+			   <a href="rtr.php"  class="button pulse">Retrait</a> 
+			</div>    
+        </div>
+      </div>
+    </div>
+  </div>
+ 
 
-/*
-n =  new Date();
-y = n.getFullYear();
-m = n.getMonth() + 1;
-d = n.getDate();
-
-document.getElementById("date").innerHTML = d + " - " + m + " - " + y;
-document.getElementById("date2").innerHTML = d + " - " + m + " - " + y;
-document.getElementById("date3").innerHTML = d + " - " + m + " - " + y;
-*/
-
-document.getElementById('vr').innerHTML = localStorage.getItem('Versement',localStorage.v);
-document.getElementById('vsuiv').innerHTML = localStorage.getItem("v-suiv", localStorage.vsv);
+</div>
+</body>
 
 
-document.getElementById('rt').innerHTML = localStorage.getItem('retrait',localStorage.r);
-document.getElementById('rsuiv').innerHTML = localStorage.getItem("r-suiv", localStorage.rsv);
+
+
+
+<script type='text/JavaScript'>
+
+function go(){
+  $('#longV').load('ajax-long-v.php');
+  $('#longR').load('ajax-long-r.php');
+  $('#act_R').load('compt_r.txt');  
+  $('#act_V').load('compt_v.txt');
+  }
+ setInterval(function(){ go(); }, 1000);
 
 </script>
-</body>                  
+
 </html>
+
 

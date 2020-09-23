@@ -2,7 +2,6 @@
 body{
     background-color: #f0f0f0;
     font-family: 'Nunito', sans-serif;
-
 }
 
 a{
@@ -38,13 +37,6 @@ h1, h3
     overflow: hidden;
     padding: 5px;
 }
-.post .titre{
-    width: 100%;
-    border-radius: 6px;
-    transition: .3s linear;
-
-}
-
 .post-content{
   background-color: #f9f9f9;
   margin: 0 20px;
@@ -67,8 +59,63 @@ h1, h3
 
 }
 
-.post:hover .titre{
-    transform: translateY(20px);
+.post .titre1{
+  width: 100%;
+  border-radius: 6px;
+  transition: .3s linear;
+  background-color:silver;
+  color: white; 
+  height: 200px; 
+  text-align: center;
+}
+
+.post .titre1 .txt1 {
+  padding-top: 20px;
+
+}
+
+.post .titre2{
+  width: 100%;
+  border-radius: 6px;
+  transition: .3s linear;
+  background-color:powderblue;
+  color: white; 
+  height: 200px; 
+text-align: center;
+
+}
+
+.post .titre2 .txt2 {
+padding-top: 20px;
+}
+
+.post .titre3{
+  width: 100%;
+  border-radius: 6px;
+  transition: .3s linear;
+  background-color:wheat;
+  color: white; 
+  height: 200px; 
+  text-align: center;
+}
+
+.post .titre3 .txt3 {
+  padding-top: 20px;
+
+}
+
+.post:hover .titre1 {
+  transform: translateY(20px);
+}
+
+
+.post:hover .titre2 {
+  transform: translateY(20px);
+}
+
+
+.post:hover .titre3 {
+  transform: translateY(20px);
 }
 
 .post:hover .post-content{
@@ -86,91 +133,16 @@ h1, h3
 }
 
 
-.bouton{
-    background-color: teal;
-    border: 0;
-    border-radius: 5px;
-    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
-    color: white;
-    font-size: 24px;
-	padding: 20px 35px;
-	text-align :center;
-}
-
 .foot{
     display: flex;
     align-items: center;
     justify-content: center;
 }
 
-
-.modal{
-background-color: rgba(0, 0, 0, 0.3);
-display: none;
-padding-top: 250px; /* Location of the box */
-align-items: center;
-justify-content: center;
-position: fixed;
-top: 0;
-left: 0;
-height: 100vh;
-width: 100vw;
-}
-
-.modal-content{
-    background-color: white;
-    width: 500px;
-    height: 200px;
-    max-width: 100%;
-    padding: 30px 50px;
-    border-radius: 5px;
-    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
-    text-align: center;
-    margin: auto;
-    
-    }
-    .modal-content h1{
-    margin: 0;
-    }
-    
-    .modal-content p{
-    font-size: 14px;
-    opacity: 0.7;
-    }
-    
-    .close{
-    color:gray;
-    float: right;
-    font-size: 28px;
-    font-weight: bold;
-    }
-    
-    .close:hover,
-    .close:focus {
-    color: black;
-    text-decoration: none;
-    cursor: pointer;
-    }
-
-
-@keyframes pulse {
-    0% {
-      transform: scale(0);
-      opacity: 0;
-    }
-    33% {
-      transform: scale(1);
-      opacity: 1;
-    }
-    100% {
-      transform: scale(3);
-      opacity: 0;
-    }
-  }
   .big {
     display: inline-flex;
     align-items: center;
-    background: teal;
+    background: seagreen;
     box-shadow: 0 3px 2px 0 rgba(0,0,0,0.1);
     border-radius: 5px;
     height: 70px;
@@ -179,11 +151,11 @@ width: 100vw;
     font-size: larger;
     text-transform: uppercase;
     text-decoration: none;
-    transition: teal .3s, transform .3s, box-shadow .3s;
+    transition: seagreen .3s, transform .3s, box-shadow .3s;
      will-change: transform;
   }
   .big:hover {
-        background: darken(teal,10%);
+        background: darken(seagreen,10%);
       box-shadow: 0 4px 17px rgba(0,0,0,0.2);
       transform: translate3d(0, -2px, 0);
       color: #f0f0f0;
@@ -198,7 +170,7 @@ width: 100vw;
   .button {
     display: inline-flex;
     align-items: center;
-    background: teal;
+    background: seagreen;
     box-shadow: 0 3px 2px 0 rgba(0,0,0,0.1);
     border-radius: 5px;
     height: 45px;
@@ -206,11 +178,11 @@ width: 100vw;
     color: #fff;
     text-transform: uppercase;
     text-decoration: none;
-    transition: teal .3s, transform .3s, box-shadow .3s;
+    transition: seagreen .3s, transform .3s, box-shadow .3s;
      will-change: transform;
   }
   .button:hover {
-        background: darken(teal,10%);
+        background: darken(seagreen,10%);
       box-shadow: 0 4px 17px rgba(0,0,0,0.2);
       transform: translate3d(0, -2px, 0);
       color: #f0f0f0;
@@ -249,12 +221,27 @@ width: 100vw;
     }
   
   
+    .modal {
+      padding-top: 250px; /* Location of the box */
+}
+/* Modal Content */
+.modal-content {
+  margin: auto;
+  width: 70%;
+}
 
+.bx h2,h4{
+text-align: center;  
+}
+.bx{
+  margin: auto;
+}
+.bx a{
+margin-left: 38px;
+margin-bottom: 20px;
+margin-top: 10px;
 
-
-
-
-
+}
 
 
 

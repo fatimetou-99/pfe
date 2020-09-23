@@ -5,7 +5,6 @@
 	<title>Fil D'attente</title>
 	<meta charset="UTF-8">
 	<meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <link href="https://fonts.googleapis.com/css2?family=Nunito:ital,wght@0,300;0,400;0,600;1,300;1,400;1,600&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.0/css/bootstrap.min.css">
 	<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
   <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
@@ -20,30 +19,31 @@
     
 </head>
 <?php 
-
+session_start();
 include "cnx.php";
  
 
-if (isset($_POST["versement"])){
-   
-     $nom=$_POST["nom"];
-     $tel=$_POST["tel"];
+$nom=$_POST["nom"];
+$tel=$_POST["tel"];
+
 
      $chercheV = mysqli_query($con,"SELECT * from client where nom ='$nom' and tel ='$tel' ");
 
      if (mysqli_num_rows($chercheV)>0){
+
        // Client deja dans la base
             $rwV = mysqli_fetch_assoc($chercheV) ;
             $id_cl =$rwV['id_cl'];
             $date =date('Y-m-d');
             $ins_V = mysqli_query($con, "INSERT into versement (date_v,id_cl) values ('". $date . "', '" .$id_cl ."')");
        if($ins_V){
-           echo 'ok';
+          $_SESSION['nom'] = $nom ;
+
         ?>
         <script>
          swal({
-           title: "Wow!",
-           text: "Message!",
+           title: "Super!",
+           text: "Vos Avez etes ajoutee au file!",
            icon: "success"
        }).then(function() {
            window.location = "vs-info.php";
@@ -81,13 +81,13 @@ if (isset($_POST["versement"])){
                  $date =date('Y-m-d');
             $insert_V = mysqli_query($con, "INSERT into versement (date_v,id_cl) values ('". $date . "', '" .$id_cl ."')");  
             if($insert_V){
-                
-                echo' ok';
+              $_SESSION['nom'] = $nom ;
+
                 ?>
                <script>
                 swal({
-                  title: "Wow!",
-                  text: "Message!",
+                  title: "Super!",
+              text: "Vos Avez etes ajoutee au file!",
                   icon: "success"
               }).then(function() {
                   window.location = "vs-info.php";
@@ -114,14 +114,12 @@ if (isset($_POST["versement"])){
            }
                                                
            } 
-            
-   }
+          
 
 }
-
 // Retrait
 
-else if(isset($_POST["retrait"])){
+ if(isset($_POST["retrait"]) && !empty($_POST['nom']) && !empty($_POST['tel']) ){
    
      $nom=$_POST["nom"];
      $tel=$_POST["tel"];
@@ -129,6 +127,7 @@ else if(isset($_POST["retrait"])){
      $cherchR = mysqli_query($con,"SELECT * from client where nom ='$nom' and tel ='$tel' ");
 
      if (mysqli_num_rows($cherchR)>0){
+
        // Client deja dans la base
             $rw = mysqli_fetch_assoc($cherchR) ;
             $id_c =$rw['id_cl'];
@@ -136,12 +135,12 @@ else if(isset($_POST["retrait"])){
 
             $ins_R = mysqli_query($con,"INSERT into retrait (date_r,id_c) values ('". $date . "', '" .$id_c ."')");
        if($ins_R){
-           echo 'ok';
+          
         ?>
         <script>
          swal({
-           title: "Wow!",
-           text: "Message!",
+           title:"Super!",
+           text: "Vos Avez etes ajoutee au file!",
            icon: "success"
        }).then(function() {
            window.location = "rt-info.php";
@@ -181,12 +180,11 @@ else if(isset($_POST["retrait"])){
             $insert_R = mysqli_query($con, "INSERT into retrait (date_r,id_c) values ('". $date . "', '" .$id_c ."')");  
            
             if($insert_R){
-                echo' ok';
                 ?>
                <script>
                 swal({
-                  title: "Wow!",
-                  text: "Message!",
+                  title: "Super!",
+           text: "Vos Avez etes ajoutee au file!",
                   icon: "success"
               }).then(function() {
                   window.location = "rt-info.php";

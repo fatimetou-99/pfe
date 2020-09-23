@@ -1,100 +1,80 @@
+<? 
+
+require_once "header.php"; 
+require_once "cnx.php";
+
+session_start();
+require("session.php");
+if (ret::isloggedR()){
+}
+else{
+    header('location:login-r.php');
+}
+
+$sqlR = mysqli_query($con,"SELECT max(id_rt) as longR from temp_r");
+if (mysqli_num_rows($sqlR)>0){
+		 $rowR = mysqli_fetch_assoc($sqlR) ;
+
+}
+$longR = $rowR['longR'];
+
+  $monfichier = fopen('compt_r.txt', 'r+'); 
+  $act = fgets($monfichier); // On lit la première ligne (nombre de pages vues)
+  if($act < $longR){
+    $act = $act + 1; // On augmente de 1 ce nombre de pages vues
+    fseek($monfichier, 0); // On remet le curseur au début du fichier
+    fputs($monfichier, $act); // On écrit le nouveau nombre de pages vues
+    fclose($monfichier);
+  }
+  $atn = $longR - $act;
+
+
+?>
+
 <html lang="en">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <link href="https://fonts.googleapis.com/css2?family=Nunito:ital,wght@0,300;0,400;0,600;1,300;1,400;1,600&display=swap" rel="stylesheet">
-  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">
-    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
-    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script> 
-   
-   
-    <link rel="stylesheet" type="text/css" href="css/header.css">
-    <link rel="stylesheet" type="text/css" href="css/try.css">
 
-    <style>
-.btn{
-    display:flex;
-    justify-content:center;
-    align-items:center;
-}
-button {
+	<title>Fil D'attente</title>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+	<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script> 
+  <link rel="stylesheet" type="text/css" href="css/font.css" />
+  <link rel="stylesheet" type="text/css" href="css/csr.css" />
 
-  background-color: teal;
-  width:250px;
-  height:50px;
-  padding: 10px 10px;
-  color :#fff;
-  border-radius: 40px;
-  font-size: 20px;
-}
-
-    </style>
-  <title>Document</title>
 </head>
 <body>
-  <div class="container" >
+<div class="container">
 
-    <div class="header" >
-        <div class="navbar">
-          <div class="logo"> <a  href="index.php"><img src="images/logo.png"  alt="LOGO" width="19%" height="70px"></a></div>
-            
-          <img src="images/fr.png" width="50px" height="50px"></li>
-          </div>
-      </div> 
+<div class="courses-container">
+
+	<div class="course">
+    <div class="course-info">
+	  <h2>Numero Actuelle</h2>
+		</div>
+		<div class="course-preview">
+			<h2 id="r-act"><? echo $act;?></h2>
+		</div>
+  </div>
+
+  <div class="course">
+		<div class="course-preview">
+			<h2 id="Rattente"><? echo $atn;?></h2>
+		</div>
+		<div class="course-info">
+	  <h3>Personnes en attente</h3>
+		</div>
+  </div>
   
-<div class="cnt">
-
-
-<div class="card">
-  <div class="circle">
-    <h2 id="Rattente"></h2>
-  </div>
-  <div class="content">
-    <p>Personnes en attente
-    </p>
-  </div>
 </div>
-
-<div class="card">
-  <div class="circle">
-    <h2 id="r-act"></h2>
-  </div>
-  <div class="content">
-    <p>Numero Actuelle
-      <br>
-    </p>
-  </div>
+<form method='post' action ='caisier-r.php'>
+<button class="botn" name="suiv">Suivant</button>
+</form>
 </div>
-</div> 
-<div class="btn">
-<button onclick="R_act()" >Suivant</button>
 </div>
-<script>
-function R_act(){
-    if(typeof(Storage) !== "undefined") {
-                if (localStorage.rsv) {
-                  localStorage.rsv = Number(localStorage.rsv)+1;
-                } 
-                else {
-                  localStorage.rsv = 1;
-                }
-                 
-                localStorage.setItem("r-suiv", localStorage.rsv);
-            } 
-            else {
-                document.getElementById("result").innerHTML = "Sorry, your browser does not support web storage...";
-              }
-}
-
-
-var c = localStorage.getItem('retrait',localStorage.r);
-var d = localStorage.getItem("r-suiv", localStorage.rsv);
-
-document.getElementById('Rattente').innerHTML = c-d;
-
-document.getElementById('r-act').innerHTML = localStorage.getItem("r-suiv", localStorage.vsv);
-
-</script>
 </body>
 </html>
+
+
 
